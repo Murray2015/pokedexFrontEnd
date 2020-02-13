@@ -1,0 +1,31 @@
+header {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+#search-main {
+    display: flex;
+    background-image: url("images/Pokedex.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: gray;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: -100px;
+}
+
+label {
+    grid-column: 1 / 2;
+}
+
+input,
+button {
+    grid-column: 2 / 3;
+}
