@@ -18,7 +18,7 @@ function generateCard() {
   pokemonCard.innerHTML = `
         <div class="pokemon-card">
             <p class="card-title">${name}</p>
-            <div class="pokemon-picture"><img src="${img_url} />></div>
+            <div class="pokemon-picture"><img src="${img_url} /></div>
             <div class="about-text-area">
                 <p class="label">Description:</p class="label">
                 <p class="description">${description}</p>
