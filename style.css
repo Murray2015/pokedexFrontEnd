@@ -9,6 +9,15 @@ header {
   text-align: center;
 }
 
+header img {
+  width: 300px;
+  margin-bottom: 5px;
+}
+
+header button {
+  font-size: large;
+}
+
 #search-main {
   display: flex;
   background-image: url("images/Pokedex.png");
@@ -39,19 +48,19 @@ button {
 }
 
 form > button {
-  background-color: red;
+  background-color: #cc0000;
   color: white;
   font-weight: bold;
 }
 form > button:hover {
-  background-color: rgb(255, 118, 118);
-  color: yellow;
+  background-color: #ff0000;
+  color: #ffde00;
 }
 
 #search-form {
   position: absolute;
   width: 400px;
   height: 400px;
-  top: 50%;
+  top: calc(50% + 40px);
   left: calc(50% - 175px);
 }
