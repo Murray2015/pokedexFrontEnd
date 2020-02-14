@@ -1,6 +1,6 @@
 .pokemon-card {
-  height: 800px;
-  width: 50%;
+  height: 400px;
+  width: 25%;
   background-image: url('../images/blank-poke-card.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -9,20 +9,20 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 10px;
 }
 
 .card-title {
   font-weight: bolder;
-  font-size: 1.5em;
+  font-size: 1em;
   padding-top: 0.5em;
 }
 
 .about-text-area {
   background-color: #dad1cc;
-  height: 30%;
+  height: 37%;
   width: 90%;
-  margin-top: 3em;
+  margin-top: 3.8em;
 }
 
 .pokemon-picture {
