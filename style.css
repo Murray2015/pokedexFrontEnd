@@ -4,6 +4,10 @@ html {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   margin: 0 auto;
   text-align: center;
@@ -12,6 +16,29 @@ header {
 header img {
   width: 300px;
   margin-bottom: 5px;
+}
+
+@media screen and (max-width: 780px) {
+  /* make burger menu etc */
+  #guide-button,
+  #search-button,
+  #create-button,
+  #edit-button {
+    display: none;
+  }
+  #home-button {
+    width: 80px;
+  }
+  #more-button {
+    width: 80px;
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  #more-button {
+    display: none;
+  }
 }
 
 header button {
