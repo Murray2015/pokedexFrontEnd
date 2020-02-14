@@ -4,11 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link type="text/css" rel="stylesheet" href="createCard\cardStyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <title>Pokemon guide</title>
   </head>
 
   <body>
-    <img id="card-background" src="images\blank-poke-card.jpg" />
+    <div class="pokemon-card">
+      <p class="card-title">Pokemon Name</p>
+      <div class="pokemon-picture"></div>
+      <div class="about-text-area">
+        <p class="label">Description:</p class="label">
+        <p class="description">Sample text</p>
+        <p class="label">Type:</p>
+        <ul class="types">
+          <li class="type-li">type</li>
+          <li class="type-li">type</li>
+        </ul>
+      </div>
+    </div>
     <script src="createCard\createCard.js"></script>
   </body>
 </html>
