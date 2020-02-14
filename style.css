@@ -60,11 +60,16 @@ header button {
   background-color: gray;
 }
 
-form {
+#search-form {
   display: grid;
   grid-template-columns: 160px 170px;
   grid-template-rows: 20px 20px 20px 20px 20px;
   grid-gap: 10px;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: calc(50% + 40px);
+  left: calc(50% - 175px);
 }
 
 label {
@@ -78,20 +83,12 @@ button {
   border: 1px solid black;
 }
 
-form > button {
+#search-form > button {
   background-color: #cc0000;
   color: white;
   font-weight: bold;
 }
-form > button:hover {
+#search-form > button:hover {
   background-color: #ff0000;
   color: #ffde00;
-}
-
-#search-form {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  top: calc(50% + 40px);
-  left: calc(50% - 175px);
 }
