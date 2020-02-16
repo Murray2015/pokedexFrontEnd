@@ -48,7 +48,7 @@ router.post('/pokemon', async (req, res) => {
     body
   } = req; // parse and extract the body and converted the JSON into an object
   await savePokemon(body);
-  res.send(`You have saved ${body.name} as a pokemon.`);
+  res.json(`You have saved ${body.name} as a pokemon.`);
 });
 
 router.delete('/pokemon/:pokemonId', async (req, res) => {

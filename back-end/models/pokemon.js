@@ -41,10 +41,10 @@ async function savePokemon(pokemon) {
     evolutions
   } = pokemon; // destructuring the values that the query is going to grab and work with from the request's body; it now expects a pokemon object with these six keys/values
   const newPokemon = await query(
-    `INSERT INTO pokemon (pkdx_id, name, description, img_url, types, evolutions) VALUES ($1, $2, $3, $4, $5, $6)`,
+    `INSERT INTO pokemon (pkdx_id, name, description, img_url, types, evolutions) VALUES ($1, $2, $3, $4, $5, $6) RETURNING name`,
     [pkdx_id, name, description, img_url, types, evolutions]
   );
-  return newPokemon;
+  return newPokemon.rows[0];
 }
 
 async function deletePokemonById(id) {

@@ -19,6 +19,7 @@ header img {
 }
 
 @media screen and (max-width: 780px) {
+
   /* make burger menu etc */
   #guide-button,
   #search-button,
@@ -26,9 +27,11 @@ header img {
   #edit-button {
     display: none;
   }
+
   #home-button {
     width: 80px;
   }
+
   #more-button {
     width: 80px;
     display: inline;
@@ -63,7 +66,7 @@ header button {
 #search-form {
   display: grid;
   grid-template-columns: 160px 170px;
-  grid-template-rows: 20px 20px 20px 20px 20px;
+  grid-template-rows: 20px 20px 20px 20px 20px 20px 20px;
   grid-gap: 10px;
   position: absolute;
   width: 400px;
@@ -83,12 +86,13 @@ button {
   border: 1px solid black;
 }
 
-#search-form > button {
+#search-form>button {
   background-color: #cc0000;
   color: white;
   font-weight: bold;
 }
-#search-form > button:hover {
+
+#search-form>button:hover {
   background-color: #ff0000;
   color: #ffde00;
 }
