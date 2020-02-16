@@ -5,7 +5,7 @@ const {
 async function getPokemon() {
   const data = await query(`
   SELECT * FROM pokemon;
-  `); //no longer have to parse the JSON because the database does it for us
+  `);
   return data.rows;
 }
 
@@ -43,7 +43,7 @@ async function savePokemon(pokemon) {
   const newPokemon = await query(
     `INSERT INTO pokemon (pkdx_id, name, description, img_url, types, evolutions) VALUES ($1, $2, $3, $4, $5, $6)`,
     [pkdx_id, name, description, img_url, types, evolutions]
-  ); //now using those destructured values in the SQL INSERT query
+  );
   return newPokemon;
 }
 
@@ -51,7 +51,7 @@ async function deletePokemonById(id) {
   const res = await query(
     `DELETE FROM pokemon WHERE pkdx_id = $1 RETURNING name`,
     [id]
-  ); //deletes the row and returns the value in the name column of that row
+  );
   if (res.rowCount > 0) {
     return res.rows[0].name;
   } else {
@@ -75,7 +75,7 @@ async function updatePokemonById(id, body) {
   const updatedPokemon = await query(
     `UPDATE pokemon SET name = $2, description = $3, img_url = $4, types = $5, evolutions = $6 WHERE pkdx_id = $1 RETURNING name`,
     [id, name, description, img_url, types, evolutions]
-  ); // SQL query to UPDATE the pokemon table and SET the columns listed WHERE the pokedex id matches the id specified
+  );
   return updatedPokemon.rows[0];
 }
 
@@ -102,20 +102,6 @@ async function patchPokemon(body, id) {
   );
   return res.rows[0];
 }
-
-// async function patchPokemon(key, value, body) {
-//   if (key == 'name') {
-//     value = "'" + value + "'";
-//   }
-//   let myQuery = 'UPDATE pokemon SET ';
-//   for (let i = 0; i < Object.keys(body).length; i++) {
-//     myQuery += Object.keys(body)[i] + ' = ' + Object.values(body)[i] + ' , ';
-//   }
-//   myQuery = myQuery.substring(0, myQuery.length - 2);
-//   myQuery += ` WHERE ${key} = ${value}`;
-//   const queryReturn = await query(myQuery);
-//   return queryReturn;
-// }
 
 module.exports = {
   getPokemon,
