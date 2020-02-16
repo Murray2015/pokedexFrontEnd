@@ -1,10 +1,7 @@
-// need to fetch from the backend API to get the data
-// can hopefully use innerHTML to generate most of the tags, with ${} to insert the different bits
-
 function generateCard() {
+  //Test data below (will delete once actual data is fetched from API)
   const name = 'testName';
-  const img_url =
-    'https://www.rd.com/wp-content/uploads/2019/11/cat-10-e1573844975155-1024x692.jpg';
+  const img_url = '../images/sample-img-for-test.jpg';
   const description = 'testDescript';
   const types = ['exampleTypeOne', 'exampleTypeTwo'];
 
@@ -12,29 +9,28 @@ function generateCard() {
   for (i = 0; i < types.length; i++) {
     typeList += types[i] + ' ';
   }
-  //const response = await fetch('#'); // fetches the data from the API
-  //const data = await response.json(); // JSONS the res into data
+  //const response = await fetch('#'); // fetches the data from the API - TBC!
+  //const data = await response.json(); // JSONS the res into data - TBC!
   const pokemonCard = document.createElement('div');
+  pokemonCard.classList.add('pokemon-card');
   pokemonCard.innerHTML = `
-        <div class="pokemon-card">
             <p class="card-title">${name}</p>
-            <div class="pokemon-picture"><img src="${img_url} /></div>
+            <img class="pokemon-picture" src='${img_url}' alt='pokemon image' />
             <div class="about-text-area">
                 <p class="label">Description:</p class="label">
                 <p class="description">${description}</p>
                 <p class="label">Types:</p>
                 <p class="types">${typeList}</p>
             </div>
-        </div>
     `;
   return pokemonCard;
 }
 
 //function to put the card on the page
 function appendCard() {
-  const newCard = generateCard(); //runs generate card function
+  const newCard = generateCard();
   const resultsArea = document.querySelector('.results-area');
-  resultsArea.appendChild(newCard); // appends the new card generated above to the resultsArea div on the page
+  resultsArea.appendChild(newCard);
 }
 
 const testButton = document
