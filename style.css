@@ -4,6 +4,10 @@ html {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   margin: 0 auto;
   text-align: center;
@@ -14,8 +18,35 @@ header img {
   margin-bottom: 5px;
 }
 
+@media screen and (max-width: 780px) {
+  /* make burger menu etc */
+  #guide-button,
+  #search-button,
+  #create-button,
+  #edit-button {
+    display: none;
+  }
+  #home-button {
+    width: 80px;
+  }
+  #more-button {
+    width: 80px;
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  #more-button {
+    display: none;
+  }
+}
+
 header button {
   font-size: large;
+  background-color: #ffde00;
+  color: #3b4cca;
+  border: 2px solid #3b4cca;
+  width: 10%;
 }
 
 #search-main {
@@ -29,11 +60,16 @@ header button {
   background-color: gray;
 }
 
-form {
+#search-form {
   display: grid;
   grid-template-columns: 160px 170px;
   grid-template-rows: 20px 20px 20px 20px 20px;
   grid-gap: 10px;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: calc(50% + 40px);
+  left: calc(50% - 175px);
 }
 
 label {
@@ -47,20 +83,12 @@ button {
   border: 1px solid black;
 }
 
-form > button {
+#search-form > button {
   background-color: #cc0000;
   color: white;
   font-weight: bold;
 }
-form > button:hover {
+#search-form > button:hover {
   background-color: #ff0000;
   color: #ffde00;
-}
-
-#search-form {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  top: calc(50% + 40px);
-  left: calc(50% - 175px);
 }
