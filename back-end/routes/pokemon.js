@@ -92,9 +92,9 @@ router.patch('/pokemon/:pokemonId', async function (req, res) {
   //   message: `You've updated pokemon ${updatedPokemon.name}`
   // });
   if (patchedPokemon) {
-    res.status(200).send(`You've updated pokemon ${pokemonId}`);
+    res.status(200).json(`You've updated pokemon ${pokemonId}`);
   } else {
-    res.status(400).send(`No pokemon by that id found.`);
+    res.status(400).json(`No pokemon by that id found.`);
   }
 });
 

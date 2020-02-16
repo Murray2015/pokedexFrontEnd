@@ -88,7 +88,6 @@ async function patchPokemon(body, id) {
     types,
     evolutions
   } = body;
-  console.log(id, name, description, img_url, types, evolutions)
   const res = await query(
     `UPDATE pokemon 
     SET pkdx_id = COALESCE($1, pkdx_id),
