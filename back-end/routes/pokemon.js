@@ -1,5 +1,3 @@
-// this file is the router - it routes the requests where they need to go
-
 const express = require('express');
 const router = express.Router();
 const {
@@ -25,7 +23,7 @@ router.get('/pokemon', async (req, res) => {
     // if name is specified, return that specific pokemon
     const namedPokemon = await getPokemonByName(name);
     res.json(namedPokemon);
-    return; // makes sure the function quits here if it's using this if statement (if this is true)
+    return;
   }
   if (search) {
     const searchedPokemon = await searchPokemonByName(search);
@@ -50,7 +48,6 @@ router.post('/pokemon', async (req, res) => {
     body
   } = req; // parse and extract the body and converted the JSON into an object
   await savePokemon(body);
-  // Don't need a res.json here because the SQL INSERT query does the manipulation of the data over in the query
   res.send(`You have saved ${body.name} as a pokemon.`);
 });
 
@@ -62,7 +59,7 @@ router.delete('/pokemon/:pokemonId', async (req, res) => {
   if (name) {
     res.status(200).send(`Pokemon ${pokemonId}, ${name}, has been deleted.`);
   } else {
-    res.status(406).send(`No pokemon by that id found.`); // 406 is status: not acceptable
+    res.status(406).send(`No pokemon by that id found.`);
   }
 });
 
@@ -80,6 +77,7 @@ router.put('/pokemon/:pokemonId', async (req, res) => {
     res.status(400).send(`No pokemon by that id found.`);
   }
 });
+
 
 router.patch('/pokemon/:pokemonId', async function (req, res) {
   const {
