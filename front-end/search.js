@@ -5,10 +5,9 @@ const formSubmit = document.querySelector("#submit");
 formSubmit.addEventListener("click", getSearchedPokemon);
 
 function getSearchedPokemon() {
-  const pokeSearchName = document.querySelector("#pokeSearchTerm").value;
-  console.log(pokeSearchName);
+  const pokeSearchId = document.querySelector("#pokeSearchTerm").value;
+  console.log(pokeSearchId);
+  fetch(`http://localhost:5000/pokemon/${pokeSearchId}`, {
+    method: "GET"
+  }).then(res => res.json()).then(data => console.log(data));
 }
-
-// fetch("http://localhost:3000/pokemon", {
-//   method: "GET"
-// });
