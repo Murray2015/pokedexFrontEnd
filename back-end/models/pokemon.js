@@ -1,4 +1,6 @@
-const { query } = require('../db/index.js');
+const {
+  query
+} = require('../db/index.js');
 
 async function getPokemon() {
   const data = await query(`
@@ -24,13 +26,20 @@ async function searchPokemonByName(search) {
     `SELECT * FROM pokemon WHERE name ILIKE '%' || $1 || '%'`,
     // ILIKE instead of LIKE ignores the case
     // the %s are a wildcard
-    [name]
+    [search]
   );
   return pokemon.rows;
 }
 
 async function savePokemon(pokemon) {
-  const { pkdx_id, name, description, img_url, types, evolutions } = pokemon; // destructuring the values that the query is going to grab and work with from the request's body; it now expects a pokemon object with these six keys/values
+  const {
+    pkdx_id,
+    name,
+    description,
+    img_url,
+    types,
+    evolutions
+  } = pokemon; // destructuring the values that the query is going to grab and work with from the request's body; it now expects a pokemon object with these six keys/values
   const newPokemon = await query(
     `INSERT INTO pokemon (pkdx_id, name, description, img_url, types, evolutions) VALUES ($1, $2, $3, $4, $5, $6)`,
     [pkdx_id, name, description, img_url, types, evolutions]
@@ -56,26 +65,39 @@ async function deletePokemonByName(name) {
 }
 
 async function updatePokemonById(id, body) {
-  const { name, description, img_url, types, evolutions } = body;
+  const {
+    name,
+    description,
+    img_url,
+    types,
+    evolutions
+  } = body;
   const updatedPokemon = await query(
-    `UPDATE pokemon SET name = $2, description = $3, img_url = $4, types = $5, evolutions = $6 WHERE pkdx_id = $1`,
+    `UPDATE pokemon SET name = $2, description = $3, img_url = $4, types = $5, evolutions = $6 WHERE pkdx_id = $1 RETURNING name`,
     [id, name, description, img_url, types, evolutions]
   ); // SQL query to UPDATE the pokemon table and SET the columns listed WHERE the pokedex id matches the id specified
   return updatedPokemon.rows[0];
 }
 
 async function patchPokemon(body, id) {
-  const { pkdx_id, name, description, img_url, types, evolutions } = pokemon;
+  const {
+    pkdx_id,
+    name,
+    description,
+    img_url,
+    types,
+    evolutions
+  } = body;
+  console.log(id, name, description, img_url, types, evolutions)
   const res = await query(
     `UPDATE pokemon 
-    SET pkdx_id COALESCE($1, pkdx_id),
+    SET pkdx_id = COALESCE($1, pkdx_id),
     name = COALESCE($2, name),
     description = COALESCE($3, description),
     img_url = COALESCE($4, img_url),
-    types = COALESCE($5, types,
-    evolutions = COALESCE($6, evolutions)
-    WHERE id = $1
-  )`,
+    types = COALESCE($5, types),
+    evolutions = COALESCE($6, evolutions) 
+    WHERE id = $1 RETURNING pkdx_id`,
     [id, name, description, img_url, types, evolutions]
   );
   return res.rows[0];
