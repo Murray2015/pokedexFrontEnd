@@ -66,6 +66,16 @@ header button {
   background-color: gray;
 }
 
+#guide-main {
+  display: flex;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: gray;
+}
+
 #search-form {
   display: grid;
   grid-template-columns: 160px 170px;
@@ -90,12 +100,12 @@ button {
 }
 
 #search-form > button {
-  background-color: --button-bg-color;
+  background-color: var(--button-bg-color);
   color: white;
   font-weight: bold;
 }
 
 #search-form > button:hover {
-  background-color: --button-bg-color;
+  background-color: var(--button-bg-color);
   color: #ffde00;
 }
