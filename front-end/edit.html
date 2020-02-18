@@ -2,43 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex edit</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex edit</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <header>
-        <div>
-          <img src="images/International_Pokémon_logo.svg.png" />
-        </div>
-        <div>
-          <button id="home-button"><a href="./index.html">Home</a></button>
-          <button id="guide-button"><a href="./guide.html">Guide</a></button>
-          <button id="search-button"><a href="./search.html">Search</a></button>
-          <button id="create-button"><a href="./create.html">Create</a></button>
-          <button id="edit-button"><a href="./edit.html">Edit</a></button>
-          <button id="more-button">More</button>
-        </div>
-      </header>
+  <header>
+    <div>
+      <img src="images/International_Pokémon_logo.svg.png" />
+    </div>
+    <div>
+      <button id="home-button"><a href="./index.html">Home</a></button>
+      <button id="guide-button"><a href="./guide.html">Guide</a></button>
+      <button id="search-button"><a href="./search.html">Search</a></button>
+      <button id="create-button"><a href="./create.html">Create</a></button>
+      <button id="edit-button"><a href="./edit.html">Edit</a></button>
+      <button id="more-button">More</button>
+    </div>
+  </header>
 
-    <main id="search-main">
-        <form id="search-form">
-            <label>Pokemon name: </label>
-            <input></input>
-            <label>Pokemon description: </label>
-            <input></input>
-            <label>Pokemon types: </label>
-            <input></input>
-            <label>Pokemon evolutions: </label>
-            <input></input>
-            <button type="submit">Search!</button>
-        </form>
+  <main id="search-main">
+    <div id="search-form">
+      <label>Pokemon to edit ID: </label>
+      <input id="form-poke-id"></input>
+      <label></label>
+      <label>Pokemon name: </label>
+      <input id="form-poke-name"></input>
+      <label>Pokemon description: </label>
+      <input id="form-poke-desc"></input>
+      <label>Image url: </label>
+      <input id="form-poke-url"></input>
+      <label>Pokemon types: </label>
+      <input id="form-poke-types"></input>
+      <label>Pokemon evolutions: </label>
+      <input id="form-poke-evos"></input>
+      <button id="edit-poke-button">Create Pokemon!</button>
+    </div>
+  </main>
 
-    </main>
-
-
+  <script src="./edit.js"></script>
 </body>
 
 </html>
