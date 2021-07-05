@@ -1,3 +1,7 @@
+:root {
+  --button-bg-color: #ff0000;
+}
+
 html {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -19,7 +23,6 @@ header img {
 }
 
 @media screen and (max-width: 780px) {
-
   /* make burger menu etc */
   #guide-button,
   #search-button,
@@ -54,7 +57,17 @@ header button {
 
 #search-main {
   display: flex;
-  background-image: url("images/Pokedex.png");
+  background-image: url('images/Pokedex.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: gray;
+}
+
+#guide-main {
+  display: flex;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -86,13 +99,13 @@ button {
   border: 1px solid black;
 }
 
-#search-form>button {
-  background-color: #cc0000;
+#search-form > button {
+  background-color: var(--button-bg-color);
   color: white;
   font-weight: bold;
 }
 
-#search-form>button:hover {
-  background-color: #ff0000;
+#search-form > button:hover {
+  background-color: var(--button-bg-color);
   color: #ffde00;
 }
